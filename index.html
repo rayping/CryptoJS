@@ -1,0 +1,37 @@
+<script src="rollups/aes.js"></script>
+
+
+<script type="text/javascript">
+  var data = "jiaoyihu2018";
+  
+  
+  
+  var key  = CryptoJS.enc.Utf8.parse('OOOOOO1234567890');
+  var iv   = CryptoJS.enc.Utf8.parse('0102030405060708');
+  //加密
+  var encrypted = CryptoJS.AES.encrypt(data,
+	key,
+	{
+		iv:iv,
+		mode:CryptoJS.mode.CBC,
+		padding:CryptoJS.pad.Pkcs7
+	}
+  );
+  
+  document.write("加密:"+encrypted.ciphertext.toString()+ "<br>");
+  document.write("<br>");
+ 
+ 
+ 
+ 
+  //解密
+  var decrypted = CryptoJS.AES.decrypt("VfQOdv+0fUDhoOU3lTIMew==",
+	key,
+	{	iv:iv,
+		mode:CryptoJS.mode.CBC,
+		padding:CryptoJS.pad.Pkcs7
+	}
+  );
+  
+ document.write("解密:"+decrypted.toString(CryptoJS.enc.Utf8));
+</script>
